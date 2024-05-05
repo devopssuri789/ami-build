@@ -2,8 +2,8 @@
     "builders": [
       {
         "type": "amazon-ebs",
-        "access_key": "AKIA46OMWAMDOFFVEFPY",
-        "secret_key": "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",
+        "access_key": "AKIA46OMWAMDPDAWLF3D",
+        "secret_key": "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",
         "region": "us-east-1",
         "source_ami": "ami-04b70fa74e45c3917",
         "instance_type": "t2.micro",
