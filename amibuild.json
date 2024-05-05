@@ -4,11 +4,11 @@
         "type": "amazon-ebs",
         "access_key": "AKIA46OMWAMDOFFVEFPY",
         "secret_key": "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",
-        "region": "ap-south-1",
-        "source_ami": "ami-05e00961530ae1b55",
+        "region": "us-east-1",
+        "source_ami": "ami-04b70fa74e45c3917 ",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "my-packer-ami "
+        "ami_name": "my-packer-ami-1"
       }
     ],
   
