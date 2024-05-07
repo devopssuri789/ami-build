@@ -27,7 +27,7 @@ jobs:
           packer --version
 
       - name: Initialize Packer project
-        run: packer init -upgrade
+        run: packer init custom_ami.pkr.hcl
 
       - name: Build AMI with Packer
         run: |
