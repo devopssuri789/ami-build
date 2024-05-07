@@ -1,2 +1,2 @@
-variable "aws_access_key_id" {}
-variable "aws_secret_access_key" {}
+aws_access_key_id = var.github_secrets.aws_access_key_id
+aws_secret_access_key = var.github_secrets.aws_secret_access_key
