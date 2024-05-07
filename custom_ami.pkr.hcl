@@ -3,6 +3,10 @@ variable "aws_region" {}
 variable "source_ami" {}
 variable "instance_type" {}
 
+# Load variables from variables file
+#source "vars" "vars" {
+#  source = "variables.pkr.hcl"
+#}
 # Define the Packer build configuration
 packer {
   required_plugins {
