@@ -9,6 +9,10 @@ jobs:
   build-ami:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,6 +25,11 @@ jobs:
           unzip packer_1.7.7_linux_amd64.zip
           sudo mv packer /usr/local/bin/packer
           packer --version
+
+      - name: Set up secrets as environment variables
+        run: |
+          echo "::set-env name=AWS_ACCESS_KEY_ID::${{ secrets.AWS_ACCESS_KEY_ID }}"
+          echo "::set-env name=AWS_SECRET_ACCESS_KEY::${{ secrets.AWS_SECRET_ACCESS_KEY }}"
 
       - name: Build AMI with Packer
         run: |
