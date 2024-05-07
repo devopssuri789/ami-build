@@ -24,4 +24,5 @@ jobs:
 
       - name: Build AMI with Packer
         run: |
-          packer build -var 'aws_region=us-east-1' -var 'source_ami=ami-04b70fa74e45c3917' -var 'instance_type=t2.micro' -var 'aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }}' -var 'aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' custom_ami.pkr.hcl
+          #packer build -var 'aws_region=us-east-1' -var 'source_ami=ami-04b70fa74e45c3917' -var 'instance_type=t2.micro' -var 'aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }}' -var 'aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' custom_ami.pkr.hcl
+          packer build -var 'aws_region=us-east-1' -var 'source_ami=ami-04b70fa74e45c3917' -var 'instance_type=t2.micro' -var-file=variables.pkr.hcl custom_ami.pkr.hcl
