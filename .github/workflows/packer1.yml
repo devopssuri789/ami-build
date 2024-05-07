@@ -27,7 +27,7 @@ jobs:
           packer --version
 
       - name: Initialize Packer project
-        run: packer init
+        run: packer init -upgrade
 
       - name: Build AMI with Packer
         run: |
