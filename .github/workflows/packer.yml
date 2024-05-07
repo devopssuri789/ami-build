@@ -1,4 +1,4 @@
-name: Packer Build
+name: Packer Build AMI
 
 on:
   push:
