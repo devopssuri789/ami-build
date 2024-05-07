@@ -1,0 +1,27 @@
+name: Build Custom AMI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-ami:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Packer
+        run: |
+          sudo apt-get update
+          sudo apt-get install unzip
+          wget https://releases.hashicorp.com/packer/1.7.7/packer_1.7.7_linux_amd64.zip
+          unzip packer_1.7.7_linux_amd64.zip
+          sudo mv packer /usr/local/bin/packer
+          packer --version
+
+      - name: Build AMI with Packer
+        run: |
+          packer build -var 'aws_region=us-east-1' -var 'source_ami=ami-04b70fa74e45c3917' -var 'instance_type=t2.micro' -var 'aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }}' -var 'aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' custom_ami.pkr.hcl
